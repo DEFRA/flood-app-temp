@@ -1,0 +1,7 @@
+#!/bin/sh
+
+sass --style=compressed \
+  --load-path=node_modules \
+  --quiet-deps \
+  server/src/sass/application.scss \
+  server/dist/stylesheets/application.css

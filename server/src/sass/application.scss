@@ -1,0 +1,82 @@
+$govuk-global-styles: true;
+
+// DL: Tablet/desktop overide to address modern iPads 
+$govuk-breakpoints: (
+  mobile:  320px,
+  tablet:  641px,
+  desktop: 835px
+) !default;
+
+// GOV.UK Frontend
+@import "govuk-frontend/dist/govuk/index";
+
+// Flood Webchat
+@import "@defra/flood-webchat/main";
+
+//
+// ITCSS
+// https://designnotes.blog.gov.uk/2018/02/19/developing-new-typography-and-spacing-for-gov-uk-frontend/
+//
+
+// Settings
+
+// Tools
+@import "tools/mixins";
+
+// Generic
+
+// Elements
+
+// Objects
+@import "objects/lists";
+@import "objects/typography";
+@import "objects/buttons";
+@import "objects/links";
+
+// Components
+@import "components/cookies";
+@import "components/flood-status";
+@import "components/flood-impact-list";
+@import "components/facets";
+@import "components/flood-warnings-list";
+@import "components/flood-data-list";
+@import "components/flood-nav";
+@import "components/flood-statistics";
+@import "components/contents";
+@import "components/related-items";
+@import "components/map/ol";
+@import "components/map/map";
+@import "components/map/map-key";
+@import "components/map/map-info";
+@import "components/map/map-overlays";
+@import "components/map/map-days";
+@import "components/bar-chart";
+@import "components/latest-levels-box";
+@import "components/line-chart";
+@import "components/banners";
+@import "components/flood-details";
+@import "components/search";
+@import "components/service-error";
+@import "components/flood-meta";
+@import "components/flood-tabs";
+@import "components/context-footer";
+@import "components/feedback";
+@import "components/top-link";
+@import "components/flood-location-link";
+@import "components/toggle-list-display";
+@import "components/social";
+@import "components/stations-overview";
+@import "components/chart-controls";
+@import "components/toggletip";
+@import "components/tooltip";
+@import "components/navbar";
+@import "components/flood-levels-table";
+
+
+// Utilities
+@import "utilities/details";
+@import "utilities/summary-list";
+
+// Datatables
+@import "../../../node_modules/datatables.net-dt/css/jquery.dataTables";
+@import "../../../node_modules/datatables.net-buttons-dt/css/buttons.dataTables";
