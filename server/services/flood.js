@@ -14,6 +14,10 @@ module.exports = {
     return null
   },
 
+  __testFlood3 () {
+    return null
+  },
+
   getFloods () {
     return util.getJson(`${serviceUrl}/floods`)
   },
