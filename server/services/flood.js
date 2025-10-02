@@ -6,6 +6,18 @@ const { serviceUrl, geoserverUrl } = require('../config')
 // let floods = null
 
 module.exports = {
+  __testFlood () {
+    return null
+  },
+
+  __testFlood2 () {
+    return null
+  },
+
+  __testFlood3 () {
+    return null
+  },
+
   getFloods () {
     return util.getJson(`${serviceUrl}/floods`)
   },
