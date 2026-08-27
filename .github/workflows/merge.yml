@@ -53,10 +53,8 @@ jobs:
                 exit 1
               fi
             }
-            prCheck flood-app master
-            prCheck flood-app development
-            prCheck flood-service master
-            prCheck flood-service development
+            prCheck flood-app-temp master
+            prCheck flood-app-temp development
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -82,10 +80,4 @@ jobs:
         run: gh release create $TAG_VERSION --title "Release $VERSION" --notes "[release notes](/$RELEASE_NOTES_FILE)"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      # - name: Trigger Merge Release Branch for flood-service
-        # run: gh workflow run --repo  "$GITHUB_REPOSITORY_OWNER/flood-service" merge.yml -f version="$VERSION"
-        # env:
-          # use PAT token with repo scope (github.token didn't work)
-           # GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
