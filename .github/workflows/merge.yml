@@ -80,20 +80,21 @@ jobs:
           git merge --no-edit $RELEASE_BRANCH
           git push origin master
 
-      - name: Create GitHub Release
-        run: gh release create $TAG_VERSION --title "Release $VERSION" --notes "[release notes](/$RELEASE_NOTES_FILE)"
-        env:
-          # create classic PAT and then run `gh secret set GH_WORKFLOW`
-          GH_TOKEN: ${{ secrets.GH_WORKFLOW }}
-
       - name: Merge release branch into development
         run: |
           git switch development
           git merge --no-edit $RELEASE_BRANCH
           git push origin development
 
+      - name: Create GitHub Release
+        run: gh release create $TAG_VERSION --title "Release $VERSION" --notes "[release notes](/$RELEASE_NOTES_FILE)"
+        env:
+          # create classic PAT and then run `gh secret set GH_WORKFLOW`
+          GH_TOKEN: ${{ secrets.GH_WORKFLOW }}
+
       - name: Trigger Merge Release Branch for flood-service
         run: gh workflow run --repo  "$GITHUB_REPOSITORY_OWNER/flood-service" merge.yml -f version="$VERSION"
         env:
           # use PAT token with repo scope (github.token didn't work)
           GH_TOKEN: ${{ secrets.GH_WORKFLOW }}
+
